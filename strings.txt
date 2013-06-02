@@ -1,0 +1,170 @@
+Introduction to Strings
+=======================
+
+String construction:
+--------------------
+
+In doing lies the true path, so let us begin by doing. Type out "Ruby Monk"
+in the box below (remember to include the quotes).
+
+Literal forms:
+--------------
+
+String construction has what is known as a literal form - the interpreter 
+treats anything surrounded with single quotes (') or double quotes(") as 
+a string. In other words, both 'RubyMonk' and "RubyMonk" will create instances
+of strings.
+
+String Length:
+--------------
+
+As a programmer, one of the common things you need to know about a String is 
+its length. Instead of merely telling you how to do this, let me share a secret
+about the Ruby API with you: Try the obvious! The Ruby core libraries are very 
+intuitive, and with a little practice you can effortlessly convert instructions
+in plain English to Ruby.
+
+String Basics
+=============
+
+String Interpolation:
+---------------------
+
+It is essential to be able to replace placeholders within a string with values they
+represent. In the programming paradigm, this is called "string interpolation". In 
+Ruby, string interpolation is extremely easy. Feel free to run the example below
+to see the sample in action.
+
+Example Code:
+
+a = 1
+b = 4
+puts "The number #{a} is less than #{b}"
+
+Search in a String:
+-------------------
+
+Another common scenario is checking if a String contains any given character, 
+word or sub-string. Considering your experience with the Ruby API and its intuitiveness,
+try and check whether the String given below includes 'Yoda'.
+
+"[Luke:] I can’t believe it. [Yoda:] That is why you fail.".include? 'Yoda'
+
+"Ruby is a beautiful language".start_with? 'Ruby'
+
+"I can't work with any other language but Ruby".end_with? 'Ruby'
+
+String case change:
+-------------------
+
+The last thing we will look into in this lesson is manipulating the case of strings.
+Ruby provides us with a convenient tool-set to take care of proper and consistent 
+casing within strings. Let's start with converting a string in lower case to upper case.
+
+Example Code:
+
+puts 'i am in lowercase'.upcase #=> 'I AM IN LOWERCASE'
+
+Similarly, one can convert a string to lower case as well. Ruby calls this method downcase.
+Convert the string below into lower case.
+
+'This is Mixed CASE'.downcase
+
+On a parting note, let us touch on an interesting method. When you encounter a mixed 
+cased string, Ruby provides a way to swap the case of every character in it i.e. 
+this method would convert "I Am MixEd" to "i aM mIXeD". Try to figure this method 
+out and tell us if you ever come across a scenario where you find use for this. It 
+might make a good story for a rainy night!
+
+ 
+"ThiS iS A vErY ComPlEx SenTeNcE".swapcase
+
+Advanced String Operations
+==========================
+
+Splitting Strings:
+------------------
+
+In this lesson, we will have a look at some vital methods that the String object 
+provides for string manipulation.
+
+Splitting strings on a particular word, escape character or white space to get an
+array of sub-strings, is an oft-used technique. The method the Ruby String API provides
+for this is String#split. Let us begin by splitting the string below on space ' ' to get
+a collection of words in the string.
+
+ 
+'Fear is the path to the dark side'.split(' ')
+
+Concatenating Strings:
+----------------------
+
+You can create a new string by adding two strings together in Ruby, just like most other
+languages.
+
+Example Code:
+
+'Ruby' + 'Monk'
+
+Ruby often provides more than one way to do the same thing. The literal and expressive 
+method for String concatenation is String#concat.
+
+Example Code:
+
+"Ruby".concat("Monk")
+
+
+Replacing a substring:
+----------------------
+
+The Ruby String API provides strong support for searching and replacing within strings.
+We can search for sub-strings or use Regex. Let us first try our hands at something simple.
+This is how we would replace 'I' with 'We' in a given string:
+
+Example Code:
+
+"I should look into your problem when I get time".sub('I','We')
+ 
+The method above only replaced the first occurrence of the term we were looking for.
+In order to replace all occurrences we can use a method called gsub which has a global scope.
+
+Example Code:
+
+"I should look into your problem when I get time".gsub('I','We')
+ 
+If you haven't come across the term Regular Expression before, now is the time for introductions.
+Regular Expressions or RegExs are a concise and flexible means for "matching" particular characters,
+words, or patterns of characters. In Ruby you specify a RegEx by putting it between a pair of 
+forward slashes (/). Now let's look at an example that replaces all the vowels with the number 1:
+
+Example Code:
+
+'RubyMonk'.gsub(/[aeiou]/,'1')
+ 
+Could you replace all the characters in capital case with number '0' in the following problem?
+
+ 
+'RubyMonk Is Pretty Brilliant'gsub(/[A-Z]/,'0')
+
+
+Find a substring using RegEx:
+-----------------------------
+
+We covered the art of finding the position of a substring in a previous lesson, but how do we
+handle those cases where we don't know exactly what we are looking for? That's where Regular 
+Expressions come in handy. The String#match method converts a pattern to a Regexp (if it isn‘t already one),
+and then invokes its match method on the target String object. Here is how you find the characters
+from a String which are next to a whitespace:
+
+Example Code:
+
+'RubyMonk Is Pretty Brilliant'.match(/ ./)
+
+As you can see in the output, the method just returns the first match rather than all the matches.
+In order to find further matches, we can pass a second argument to the match method. When the 
+second parameter is present, it specifies the position in the string to begin the search. 
+Let's find the second character in the string 'RubyMonk Is Pretty Brilliant' preceded by a space,
+which should be 'P'.
+ 
+'RubyMonk Is Pretty Brilliant'.match(/ ./,9)
+
