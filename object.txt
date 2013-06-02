@@ -3,17 +3,23 @@ Introduction to Objects
 
 Everything is an object:
 -----------------------
-In Ruby, just like in real life, our world is filled with objects. Everything is an object - integers, characters, text, arrays - everything.
+In Ruby, just like in real life, our world is filled with objects. 
+Everything is an object - integers, characters, text, arrays - everything.
 
-Roleplaying as an object in your program is an integral part of object-oriented programming. To know which object you are at the moment, one may use the keyword self.
+Roleplaying as an object in your program is an integral part of object-oriented
+programming. To know which object you are at the moment, one may use the keyword self.
 
-if you don't specify which object you are, you automatically play the role of the main object that Ruby provides us by default.
+if you don't specify which object you are, you automatically play the role of the main
+object that Ruby provides us by default.
 
 Talking to objects:
 ------------------
-One object interacts with another by using what are called methods. More specifically, one object "calls or invokes the methods" of another object.
+One object interacts with another by using what are called methods. More specifically,
+one object "calls or invokes the methods" of another object.
 
-In the example below, we call the method even? on the object that is the number 2 by placing a period (.) after the object, then adding in the name of the method we want to invoke.
+In the example below, we call the method even? on the object that is the number 2 by 
+placing a period (.) after the object, then adding in the name of the method we want to
+invoke.
 
 Calling the method next on the object 1 has it give us the next consecutive value, 2.
 
@@ -22,16 +28,21 @@ More Objects and Methods
 
 Looking up methods:
 -------------------
-Ruby objects are happy to tell you what methods they provide. You simply call the methods method on them.
+Ruby objects are happy to tell you what methods they provide. You simply call the 
+methods method on them.
 
 Invoking methods with arguments:
 --------------------------------
 
-When talking to an object via its methods, it is possible to give it additional information so it can give you an appropriate response.
+When talking to an object via its methods, it is possible to give it additional information
+so it can give you an appropriate response.
 
-This additional information is called the "arguments to a method." The name "argument" makes sense if you stop to think about the fact that methods are the paths of communication between objects.
+This additional information is called the "arguments to a method." The name "argument" makes
+sense if you stop to think about the fact that methods are the paths of communication between
+objects.
 
-Here's an example of an argument to the method index, which finds the position of the argument in the array:
+Here's an example of an argument to the method index, which finds the position of the argument
+in the array:
 
 Example Code:
 
@@ -42,10 +53,13 @@ Syntactic Sugar for Special Methods
 
 Special Method:
 ---------------
-There are several other method names that have this special status - here's a quick summary of the ones you're most likely to run into.
+There are several other method names that have this special status - here's a quick summary of
+the ones you're most likely to run into.
 
 +   -   *   /   =   ==    !=    >   <   >=    <=    []
-This last method ([]) you've probably already seen in the lesson that covers Arrays, and is arguably the most unique in its syntax. Not only does it not require a period, it also encloses the arguments to itself. Here's a quick example to refresh your memory:
+This last method ([]) you've probably already seen in the lesson that covers Arrays, and is arguably
+the most unique in its syntax. Not only does it not require a period, it also encloses the arguments
+to itself. Here's a quick example to refresh your memory:
 
 Example Code:
 
