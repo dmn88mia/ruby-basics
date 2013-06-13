@@ -1,0 +1,105 @@
+Being Methodical:
+=================
+
+Arraying your arguments
+
+The list of parameters passed to an object is, in fact, available as a list. 
+To do this, we use what is called the splat operator - which is just an asterisk (*).
+
+The splat operator is used to handle methods which have a variable parameter list. 
+Let's use it to create an add method that can handle any number of parameters.
+
+Example Code:
+
+def add(*numbers)
+  numbers.inject(0) { |sum, number| sum + number }
+end
+ 
+puts add(1)
+puts add(1, 2)
+puts add(1, 2, 3)
+puts add(1, 2, 3, 4)
+ 
+
+[reset]
+The splat operator works both ways - you can use it to convert arrays to parameter 
+lists as easily as we just converted a parameter list to an array.
+
+I'll show you how we can splat an array of three numbers into a parameter list so that 
+it works with one of the examples from earlier in this lesson that accepts exactly three parameters.
+
+Example Code:
+
+def add(a_number, another_number, yet_another_number)
+  a_number + another_number + yet_another_number
+end
+ 
+numbers_to_add = [1, 2, 3] # Without a splat, this is just one parameter
+puts add(*numbers_to_add)  # Try removing the splat just to see what happens
+ 
+
+[reset]
+If you know some of the parameters to your method, you can even mix parameter lists and splatting. 
+Again, older versions of Ruby (1.8.x or older) required you to place splatted parameters at the 
+end of the parameter list, but this is no longer necessary.
+
+In the example below, I'll expand on an earlier example to allow for the sum to be printed as a 
+part of a message. We know what the message is - but we don't know how many numbers we'll need to add.
+
+Example Code:
+
+def add(*numbers)
+  numbers.inject(0) { |sum, number| sum + number }
+end
+ 
+def add_with_message(message, *numbers)
+  "#{message} : #{add(*numbers)}"
+end
+ 
+puts add_with_message("The Sum is", 1, 2, 3)
+ 
+
+[reset]
+Why don't you try it on for size? Create a method called introduction that accepts a person's age, 
+gender and any number of names, then returns a String that introduces that person by combining all 
+of these values to create a message acceptable to the tests.
+
+As always, your objective is to make all the tests pass. Pay careful attention to the feedback from 
+the tests, because even a simple, misplaced comma in the message could cause them to fail.
+
+ 
+def introduction(age, gender, *names)
+  "Meet #{names.join(' ')}, who's #{age} and #{gender}"
+end
+
+
+Naming parameters:
+------------------
+
+This last section on method invocation is easiest demonstrated, then explained. Pay careful attention 
+to the invocation of the add method in the example below. Look at how neatly we are able to pass 
+configuration options to the method; the user of the add method gets to decide if the absolute value 
+should be returned and if rounding should happen.
+
+Example Code:
+
+def add(a_number, another_number, options = {})
+  sum = a_number + another_number
+  sum = sum.abs if options[:absolute]
+  sum = sum.round(options[:precision]) if options[:round]
+  sum
+end
+ 
+puts add(1.0134, -5.568)
+puts add(1.0134, -5.568, absolute: true)
+puts add(1.0134, -5.568, absolute: true, round: true, precision: 2)
+ 
+
+[reset]  
+Ruby makes this possible by allowing the last parameter in the parameter list to skip using curly 
+braces if it's a hash, making for a much prettier method invocation. That's why we default the options 
+to {} - because if it isn't passed, it should be an empty Hash.
+
+As a consequence, the first invocation in the example has two parameters, the second, three and the 
+last, seemingly five. In reality, the second and third invocations both have three parameters - 
+two numbers and a hash.
