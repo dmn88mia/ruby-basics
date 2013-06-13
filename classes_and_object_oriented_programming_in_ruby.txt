@@ -1,0 +1,52 @@
+Classes:
+========
+
+Grouping Objects:
+-----------------
+
+At this point, one may wonder if all objects are the same. Are the groupings we've 
+already covered - numbers, strings, arrays - supported by the Ruby language?
+
+Ruby does in fact allow one to define groups of objects, or, to use object oriented 
+jargon, classes of objects.
+
+One may look up the class of any object by simply calling the class method on it. 
+Let's try it out with a few of the objects we're already familiar with.
+
+Example Code:
+
+puts 1.class
+puts "".class
+puts [].class
+ 
+
+[reset]
+As you can see, Ruby tells us what we already suspected - that 1 is a Fixnum 
+(a special case of Integer), "" is a String and [] is an Array.
+
+We can also turn this interrogation around. Here, we'll ask whether an object is_a? 
+particular class.
+
+Example Code:
+
+puts 1.is_a?(Integer)
+puts 1.is_a?(String)
+
+Building your own class:
+========================
+
+class Rectangle
+  def initialize(length, breadth)
+    @length = length
+    @breadth = breadth
+  end
+
+  def perimeter
+    2 * (@length + @breadth)
+  end
+
+  #write the 'area' method here
+  def area
+    @length * @breadth
+  end
+end
