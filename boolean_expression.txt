@@ -1,0 +1,20 @@
+Beginner's Guide to Expressions in Ruby:
+========================================
+
+Ruby uses the == operator for comparing two objects.
+
+The other usual operators like greater than (>), less than (<), greater
+than or equal to (>=) etc. are supported. 
+
+Boolean expressions like the above always return either the true or false objects.
+
+Combining Expressions using the && and || operators:
+----------------------------------------------------
+
+You can use the keywords || (read as 'or'), && (read as 'and') to combine expressions.
+
+Negating expressions
+
+Ruby lets you negate expressions using the ! operator (read as 'not'). 
+For instance, ! (name == 'Jill') will return false if the name is Jill and true for 
+any other name.
