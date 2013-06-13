@@ -1,0 +1,112 @@
+Hashes in Ruby:
+===============
+
+Introduction to Ruby Hashes:
+----------------------------
+
+Creating a Hash:
+----------------
+
+A Hash is a collection of key-value pairs. You retrieve or create a new
+entry in a Hash by referring to its key. Hashes are also called 'associative arrays',
+'dictionary', 'HashMap' etc. in other languages
+
+A blank hash can be declared using two curly braces {}. Here is an example of a Hash in Ruby:
+
+student_ages = {
+    "Jack" => 10,
+    "Jill" => 12,
+    "Bob" => 14
+  }
+
+The names (Jack, Jill, Bob) are the 'keys', and 10, 12 and 14 are the corresponding values.
+Now try creating a simple hash with the following keys and values:
+
+Ramen = 3
+Dal Makhani = 4
+Tea = 2
+ 
+restaurant_menu = {
+  "Ramen" => 3,
+  "Dal Makhani" => 4,
+  "Tea" => 2
+}
+
+Fetch values from a Hash:
+-------------------------
+
+You can retrieve values from a Hash object using [] operator. The key of the required value
+should be enclosed within these square brackets.
+
+Now try finding the price of a Ramen from the restaurant_menu hash: write the name of the object,
+follow it with a square bracket, and place the key inside the brackets. In this case the key is a
+string so enclose the key in quotes.
+
+ 
+restaurant_menu["Ramen"]
+
+Modifying a Hash:
+-----------------
+
+Once you've created a Hash object, you would want to add new key-value pairs as well as modify 
+existing values.
+
+Here is how you would set the price of a "Ramen" in the restaurant_menu hash:
+
+restaurant_menu["Ramen"] = 3
+In fact, you can create a blank hash and add all the values later. Now why don't you try assigning
+the following values to an empty hash?
+
+Dal Makhani: 4.5
+Tea: 2
+ 
+restaurant_menu = {}
+restaurant_menu["Dal Makhani"] = 4.5
+restaurant_menu["Tea"] = 2
+
+Iterating over a Hash:
+----------------------
+
+You can use the each method to iterate over all the elements in a Hash. 
+However unlike Array#each, when you iterate over a Hash using each, it passes two
+values to the block: the key and the value of each element.
+
+Let us see how we can use the each method to display the restaurant menu.
+
+Example Code:
+
+restaurant_menu = { "Ramen" => 3, "Dal Makhani" => 4, "Coffee" => 2 }
+restaurant_menu.each do | item, price |
+  puts "#{item}: $#{price}"
+end
+ 
+
+The restaurant is doing well, but it is forced to raise prices due to increasing costs.
+Use the each method to increase the price of all the items in the restaurant_menu by 10%.
+
+Remember: in the previous example we only displayed the keys and values of each item in the hash.
+But in this exercise, you have to modify the hash and increase the value of each item.
+
+ 
+restaurant_menu = { "Ramen" => 3, "Dal Makhani" => 4, "Coffee" => 2 }
+restaurant_menu.each do |item, price|
+  restaurant_menu[item] = price + (price * 0.1)	`
+end
+
+
+Extracting the keys and values from a Hash:
+-------------------------------------------
+
+Every Hash object has two methods: keys and values. The keys method returns an array of all 
+the keys in the Hash. Similarly values returns an array of just the values.
+
+Try getting an array of all the keys in the restaurant_menu hash:
+ 
+restaurant_menu = { "Ramen" => 3, "Dal Makhani" => 4, "Coffee" => 2 }
+restaurant_menu.keys
+
+STDOUT:
+
+["Ramen", "Dal Makhani", "Coffee"]
+
+
